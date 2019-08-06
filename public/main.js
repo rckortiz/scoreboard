@@ -28,6 +28,13 @@ const team1UpdateName = () => {
   document.querySelector('.team-1-name').textContent = currentName
 }
 
+const team2UpdateName = () => {
+  console.log('new name in box')
+
+  const currentName = document.querySelector('.team-2-input').value
+  document.querySelector('.team-2-name').textContent = currentName
+}
+
 // Addition Function // team 1
 
 const team1Add = () => {
@@ -53,27 +60,48 @@ const team1Sub = () => {
 // Addition function // team 2
 
 const team2Add = () => {
-  console.log('add 1')
+  console.log('add-1')
 
-  const currentScore = document.querySelector('team-2-score').textContent
-  const newScore = parseInt(currentScore) + 1 
+  const newScore = document.querySelector('.team-2-score').textContent
+  const brandNewScore = parseInt(newScore) + 1
 
-  document.querySelector('team-2-score') = newScore 
+  document.querySelector('.team-2-score').textContent = brandNewScore
 }
 
 // Subtraction function // team 2
+const team2Sub = () => {
+  console.log('sub-1')
+
+  const newScore = document.querySelector('.team-2-score').textContent
+  const brandNewScore = parseInt(newScore) - 1
+
+  document.querySelector('.team-2-score').textContent = brandNewScore
+}
 
 // Click Event for name update
 document
   .querySelector('.update-team-1-name')
   .addEventListener('click', team1UpdateName)
 
-// Click event for addition counter
+document
+  .querySelector('.update-team-2-name')
+  .addEventListener('click', team2UpdateName)
+// Click event for addition counter // team 1
 document
   .querySelector('.team-1-add-1-button')
   .addEventListener('click', team1Add)
 
-// Click event for subtraction counter
+// Click event for subtraction counter // team 1
 document
   .querySelector('.team-1-subtract-1-button')
   .addEventListener('click', team1Sub)
+// Click event for subtraction counter // team 2
+document
+  .querySelector('.team-2-subtract-1-button')
+  .addEventListener('click', team2Sub)
+
+// Click event for addition counter // team 2
+
+document
+  .querySelector('.team-2-add-1-button')
+  .addEventListener('click', team2Add)
