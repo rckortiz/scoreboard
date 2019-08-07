@@ -21,6 +21,23 @@
 
 // Change name function
 
+//main function
+
+const outputMessage = document.querySelector('.result')
+
+const main = () => {
+  document.querySelector('.team-1-score').textContent = 0
+  document.querySelector('.team-2-score').textContent = 0
+  document.querySelector('.team-1-name').textContent = 'Team 1'
+  document.querySelector('.team-2-name').textContent = 'Team 2'
+  document.querySelector('.result').textContent = ''
+  document.querySelector('.team-1-add-1-button').disabled = false
+  document.querySelector('.team-1-subtract-1-button').disabled = false
+  document.querySelector('.update-team-1-name').disabled = false
+  document.querySelector('.team-2-add-1-button').disabled = false
+  document.querySelector('.team-2-subtract-1-button').disabled = false
+  document.querySelector('.update-team-2-name').disabled = false
+}
 const team1UpdateName = () => {
   console.log('new name in box')
 
@@ -41,9 +58,23 @@ const team1Add = () => {
   console.log('add-1')
 
   const newScore = document.querySelector('.team-1-score').textContent
+
   const brandNewScore = parseInt(newScore) + 1
 
   document.querySelector('.team-1-score').textContent = brandNewScore
+  if (brandNewScore >= 21) {
+    console.log('Number cannot be over 21')
+    document.querySelector('.team-1-score').textContent = 21
+    outputMessage.textContent = 'you win!'
+    document.querySelector('.team-1-add-1-button').disabled = true
+    document.querySelector('.team-1-subtract-1-button').disabled = true
+    document.querySelector('.update-team-1-name').disabled = true
+    document.querySelector('.team-2-add-1-button').disabled = true
+    document.querySelector('.team-2-subtract-1-button').disabled = true
+    document.querySelector('.update-team-2-name').disabled = true
+  } else {
+    document.querySelector('.team-1-score').textContent = brandNewScore
+  }
 }
 
 // Subtraction function // team 1
@@ -55,6 +86,12 @@ const team1Sub = () => {
   const brandNewScore = parseInt(newScore) - 1
 
   document.querySelector('.team-1-score').textContent = brandNewScore
+  if (brandNewScore <= 0) {
+    console.log('number less than zero')
+    document.querySelector('.team-1-score').textContent = 0
+  } else {
+    document.querySelector('.team-1-score').textContent = brandNewScore
+  }
 }
 
 // Addition function // team 2
@@ -66,6 +103,20 @@ const team2Add = () => {
   const brandNewScore = parseInt(newScore) + 1
 
   document.querySelector('.team-2-score').textContent = brandNewScore
+  if (brandNewScore >= 21) {
+    console.log('Number cannot be over 21')
+    document.querySelector('.team-2-score').textContent = 21
+    outputMessage.textContent = 'you win!'
+    // Disable buttons //
+    document.querySelector('.team-1-add-1-button').disabled = true
+    document.querySelector('.team-1-subtract-1-button').disabled = true
+    document.querySelector('.update-team-1-name').disabled = true
+    document.querySelector('.team-2-add-1-button').disabled = true
+    document.querySelector('.team-2-subtract-1-button').disabled = true
+    document.querySelector('.update-team-2-name').disabled = true
+  } else {
+    document.querySelector('.team-2-score').textContent = brandNewScore
+  }
 }
 
 // Subtraction function // team 2
@@ -76,7 +127,16 @@ const team2Sub = () => {
   const brandNewScore = parseInt(newScore) - 1
 
   document.querySelector('.team-2-score').textContent = brandNewScore
+  if (brandNewScore <= 0) {
+    console.log('number less than zero')
+    document.querySelector('.team-2-score').textContent = 0
+  } else {
+    document.querySelector('.team-2-score').textContent = brandNewScore
+  }
 }
+
+// Re-enable buttons//
+const reEnable = () => {}
 
 // Click Event for name update
 document
@@ -105,3 +165,8 @@ document
 document
   .querySelector('.team-2-add-1-button')
   .addEventListener('click', team2Add)
+
+// Reset button click event
+document.querySelector('.reset-button').addEventListener('click', main)
+
+document.addEventListener('DOMContentLoaded', main)
