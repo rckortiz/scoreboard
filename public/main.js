@@ -71,7 +71,7 @@ const team1Add = () => {
     console.log('Number cannot be over 21')
     document.querySelector('.team-1-score').textContent = 21
     teamOne.classList.add('winner')
-    outputMessage.textContent = 'you win!'
+    outputMessage.textContent = 'YOU WIN!!!'
     document.querySelector('.team-1-add-1-button').disabled = true
     document.querySelector('.team-1-subtract-1-button').disabled = true
     document.querySelector('.update-team-1-name').disabled = true
@@ -114,7 +114,7 @@ const team2Add = () => {
     //Win Condition
     document.querySelector('.team-2-score').textContent = 21
     teamTwo.classList.add('winner')
-    outputMessage.textContent = 'you win!'
+    outputMessage.textContent = 'YOU WIN!!!'
     // Disable buttons //
     document.querySelector('.team-1-add-1-button').disabled = true
     document.querySelector('.team-1-subtract-1-button').disabled = true
