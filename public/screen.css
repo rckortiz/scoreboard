@@ -50,5 +50,11 @@ h1 {
   font-size: 5rem;
 }
 
+.winner {
+  background-color: green;
+}
+
+]
+
 .result {
 }

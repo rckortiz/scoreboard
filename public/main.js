@@ -24,6 +24,8 @@
 //main function
 
 const outputMessage = document.querySelector('.result')
+const teamOne = document.querySelector('.team.one')
+const teamTwo = document.querySelector('.team.two')
 
 const main = () => {
   document.querySelector('.team-1-score').textContent = 0
@@ -31,6 +33,8 @@ const main = () => {
   document.querySelector('.team-1-name').textContent = 'Team 1'
   document.querySelector('.team-2-name').textContent = 'Team 2'
   document.querySelector('.result').textContent = ''
+  teamOne.classList.remove('winner')
+  teamTwo.classList.remove('winner')
   document.querySelector('.team-1-add-1-button').disabled = false
   document.querySelector('.team-1-subtract-1-button').disabled = false
   document.querySelector('.update-team-1-name').disabled = false
@@ -62,9 +66,11 @@ const team1Add = () => {
   const brandNewScore = parseInt(newScore) + 1
 
   document.querySelector('.team-1-score').textContent = brandNewScore
+  //Win Condition
   if (brandNewScore >= 21) {
     console.log('Number cannot be over 21')
     document.querySelector('.team-1-score').textContent = 21
+    teamOne.classList.add('winner')
     outputMessage.textContent = 'you win!'
     document.querySelector('.team-1-add-1-button').disabled = true
     document.querySelector('.team-1-subtract-1-button').disabled = true
@@ -105,7 +111,9 @@ const team2Add = () => {
   document.querySelector('.team-2-score').textContent = brandNewScore
   if (brandNewScore >= 21) {
     console.log('Number cannot be over 21')
+    //Win Condition
     document.querySelector('.team-2-score').textContent = 21
+    teamTwo.classList.add('winner')
     outputMessage.textContent = 'you win!'
     // Disable buttons //
     document.querySelector('.team-1-add-1-button').disabled = true
